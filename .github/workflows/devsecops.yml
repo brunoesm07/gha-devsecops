@@ -1,9 +1,8 @@
 name: DevSecOps Pipeline
 on: pull_request
-  branches: master, main
+
 jobs: 
   sonarcloud:
-    needs: recon
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -30,8 +29,6 @@ jobs:
 
   zap_scan:
     runs-on: ubuntu-latest
-    name: zap
-    needs: snyk
     steps:
       - name: Checkout
         uses: actions/checkout@v2
